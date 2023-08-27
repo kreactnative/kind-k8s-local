@@ -505,25 +505,25 @@
 
 
 <h1 id="ssl">SSL</h1>
-<pre><code>mkcert &quot;*.local.com&quot;
+<pre><code>mkcert &quot;*.kind.local&quot;
 </code></pre>
 <h3 id="output">Output</h3>
 <pre><code>Created a new certificate valid for the following names 📜
- - &quot;*.local.com&quot;
+ - &quot;*.kind.local&quot;
 
-Reminder: X.509 wildcards only go one level deep, so this won't match a.b.local.com ℹ️
+Reminder: X.509 wildcards only go one level deep, so this won't match a.b.kind.local ℹ️
 
-The certificate is at &quot;./_wildcard.local.com.pem&quot; and the key at &quot;./_wildcard.local.com-key.pem&quot; ✅
+The certificate is at &quot;./_wildcard.kind.local.pem&quot; and the key at &quot;./_wildcard.kind.local-key.pem&quot; ✅
 
 It will expire on 27 November 2025 🗓
 </code></pre>
 <h3 id="ssl_1">SSL</h3>
-<pre><code>├── _wildcard.local.com-key.pem
-└── _wildcard.local.com.pem
+<pre><code>├── _wildcard.kind.local-key.pem
+└── _wildcard.kind.local.pem
 </code></pre>
 <h3 id="create-secret">Create Secret</h3>
 <pre><code>kubectl create ns istio-system
-kubectl -n istio-system create secret tls local-cred --key=_wildcard.local.com-key.pem --cert=_wildcard.local.com.pem
+kubectl -n istio-system create secret tls local-cred --key=_wildcard.kind.local-key.pem --cert=_wildcard.kind.local.pem
 </code></pre>
 <h3 id="outpute">Outpute</h3>
 <pre><code>namespace/istio-system created

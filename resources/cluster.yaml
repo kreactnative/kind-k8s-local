@@ -1,6 +1,6 @@
+# cluster.yaml
 kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
-name: local
 nodes:
 - role: control-plane
   kubeadmConfigPatches:
@@ -8,16 +8,18 @@ nodes:
     kind: InitConfiguration
     nodeRegistration:
       kubeletExtraArgs:
-        node-labels: "ingress-ready=true"
+        node-labels: "ingress-ready=true"    
   extraPortMappings:
   - containerPort: 80
     hostPort: 80
+    listenAddress: 127.0.0.1  # omit for 0.0.0.0
     protocol: TCP
   - containerPort: 443
     hostPort: 443
+    listenAddress: 127.0.0.1  # omit for 0.0.0.0
     protocol: TCP
   - containerPort: 443
     hostPort: 443
+    listenAddress: 127.0.0.1  # omit for 0.0.0.0
     protocol: UDP
-- role: worker
-- role: worker
+  #image: kindest/node:v1.16.4 # configure kubernetes version

@@ -46,7 +46,7 @@ kubectl cluster-info --context kind-kind
 
 Have a nice day! 👋
 ```
-![docker](resources/images/kind-local-docker.jpg "Docker")
+![docker](resources/images/kind-docker-single-node.jpg "Docker")
 ### Get nodes
 ```
 kubectl get nodes -o wide

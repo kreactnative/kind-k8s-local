@@ -49,3 +49,11 @@ kubectl cluster-info --context kind-local
 Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
 ```
 ![docker](resources/images/kind-local-docker.jpg "Docker")
+### Get nodes
+```
+kubectl get nodes -o wide
+NAME                  STATUS   ROLES           AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION        CONTAINER-RUNTIME
+local-control-plane   Ready    control-plane   8m25s   v1.27.3   172.19.0.4    <none>        Debian GNU/Linux 11 (bullseye)   5.15.49-linuxkit-pr   containerd://1.7.1
+local-worker          Ready    <none>          8m4s    v1.27.3   172.19.0.3    <none>        Debian GNU/Linux 11 (bullseye)   5.15.49-linuxkit-pr   containerd://1.7.1
+local-worker2         Ready    <none>          8m4s    v1.27.3   172.19.0.2    <none>        Debian GNU/Linux 11 (bullseye)   5.15.49-linuxkit-pr   containerd://1.7.1
+```

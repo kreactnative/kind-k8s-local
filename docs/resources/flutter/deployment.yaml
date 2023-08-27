@@ -69,7 +69,7 @@ metadata:
   name: flutter-web-vs
 spec:
   hosts:
-    - "flutter.local.com"
+    - "flutter.kind.local"
   gateways:
     - "istio-system/local-gateway"
   http:

@@ -1,6 +1,7 @@
 site_name: Kind k8s local
 nav:
   - Home: 'index.md'
+  - Prepare Network: 'network-dns.md'
   - Cluster: 'cluster.md'
   - Metrics-Server: 'metrics-server.md'
   - MetalLB: 'metal-lb.md'

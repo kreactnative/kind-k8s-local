@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: hubble-vs
+  namespace: kube-system
+spec:
+  gateways:
+    - "istio-system/k8s-socket9-gateway"
+  hosts:
+    - "hubble-ui.k8s.socket9.com"
+  http:
+    - match:
+        - uri:
+            prefix: /
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: hubble-ui
+            port:
+              number: 80

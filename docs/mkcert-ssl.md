@@ -21,7 +21,7 @@ It will expire on 27 November 2025 🗓
 ### Create Secret
 ```
 kubectl create ns istio-system
-kubectl -n istio-system create secret tls local-cred --key=_wildcard.kind.local-key.pem --cert=_wildcard.kind.local.pem
+kubectl -n istio-system create secret tls local-cred --key=ssl/_wildcard.kind.local-key.pem --cert=ssl/_wildcard.kind.local.pem
 ```
 ### Outpute
 ```

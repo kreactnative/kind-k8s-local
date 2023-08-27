@@ -24,3 +24,10 @@ service/metrics-server created
 deployment.apps/metrics-server created
 apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io created
 ```
+```
+kubectl top nodes
+NAME                  CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%   
+local-control-plane   347m         2%     711Mi           9%        
+local-worker          58m          0%     154Mi           1%        
+local-worker2         42m          0%     126Mi           1%       
+```

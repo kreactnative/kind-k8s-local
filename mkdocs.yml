@@ -4,6 +4,8 @@ nav:
   - Cluster: 'cluster.md'
   - Metrics-Server: 'metrics-server.md'
   - MetalLB: 'metal-lb.md'
+  - Secret-SSL: 'mkcert-ssl.md'
+  - Istio: 'istio.md'
 theme:
   name: material
   schema: slate

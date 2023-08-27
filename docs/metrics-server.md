@@ -12,8 +12,6 @@ kubectl apply -f metrics-server --validate=false
 ```
 ### Output
 ```
-kubectl apply -f metrics-server --validate=false
-
 serviceaccount/metrics-server created
 clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader created
 clusterrole.rbac.authorization.k8s.io/system:metrics-server created

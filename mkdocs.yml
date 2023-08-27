@@ -6,6 +6,9 @@ nav:
   - MetalLB: 'metal-lb.md'
   - Secret-SSL: 'mkcert-ssl.md'
   - Istio: 'istio.md'
+  - Istio-Gateway: 'gateway.md'
+  - Create Test Site: 'create-test-site.md'
+  - Test Site: 'test-site.md'
 theme:
   name: material
   schema: slate

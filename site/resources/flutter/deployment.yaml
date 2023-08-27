@@ -44,7 +44,7 @@ spec:
     spec:
       containers:
         - name: flutter-test
-          image: "dotnetnat/project-mnt:1.0.0"
+          image: "harbor.socket9.com/flutter-dashboard/flutter:1.0.0"
           imagePullPolicy: Always
           ports:
             - name: http

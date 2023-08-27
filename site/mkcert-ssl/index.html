@@ -233,6 +233,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../network-dns/" class="md-nav__link">
+        Prepare Network
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../cluster/" class="md-nav__link">
         Cluster
       </a>
@@ -523,7 +538,7 @@ It will expire on 27 November 2025 🗓
 </code></pre>
 <h3 id="create-secret">Create Secret</h3>
 <pre><code>kubectl create ns istio-system
-kubectl -n istio-system create secret tls local-cred --key=_wildcard.kind.local-key.pem --cert=_wildcard.kind.local.pem
+kubectl -n istio-system create secret tls local-cred --key=ssl/_wildcard.kind.local-key.pem --cert=ssl/_wildcard.kind.local.pem
 </code></pre>
 <h3 id="outpute">Outpute</h3>
 <pre><code>namespace/istio-system created

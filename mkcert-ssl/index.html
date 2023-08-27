@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../metrics-server/">
+        <link rel="prev" href="../metal-lb/">
       
       
-        <link rel="next" href="../mkcert-ssl/">
+        <link rel="next" href="../istio/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>MetalLB - Kind k8s local</title>
+        <title>Secret-SSL - Kind k8s local</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#metallb" class="md-skip">
+        <a href="#ssl" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MetalLB
+              Secret-SSL
             
           </span>
         </div>
@@ -261,6 +261,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../metal-lb/" class="md-nav__link">
+        MetalLB
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -273,12 +288,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          MetalLB
+          Secret-SSL
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        MetalLB
+        Secret-SSL
       </a>
       
         
@@ -303,25 +318,45 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ssl_1" class="md-nav__link">
+    SSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-secret" class="md-nav__link">
+    Create Secret
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outpute" class="md-nav__link">
+    Outpute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-ca-on-other-systems" class="md-nav__link">
+    Installing the CA on other systems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outpute_1" class="md-nav__link">
+    Outpute
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../mkcert-ssl/" class="md-nav__link">
-        Secret-SSL
-      </a>
     </li>
   
 
@@ -374,6 +409,41 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ssl_1" class="md-nav__link">
+    SSL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-secret" class="md-nav__link">
+    Create Secret
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outpute" class="md-nav__link">
+    Outpute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-ca-on-other-systems" class="md-nav__link">
+    Installing the CA on other systems
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#outpute_1" class="md-nav__link">
+    Outpute
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -389,42 +459,36 @@
                   
 
 
-<h1 id="metallb">MetalLB</h1>
-<pre><code>├── cluster.yaml
-├── images
-│   └── kind-local-docker.jpg
-├── metal-lb
-│   ├── configmap.yaml
-│   └── metallb.yaml
-└── metrics-server
-    └── components.yaml
-</code></pre>
-<pre><code>kubectl create ns metallb-system
-kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey=&quot;$(openssl rand -base64 128)&quot;
-kubectl apply -f metal-lb --validate=false
+<h1 id="ssl">SSL</h1>
+<pre><code>mkcert &quot;*.local.com&quot;
 </code></pre>
 <h3 id="output">Output</h3>
-<pre><code>namespace/metallb-system created
-secret/memberlist created
-configmap/config created
-serviceaccount/controller created
-serviceaccount/speaker created
-clusterrole.rbac.authorization.k8s.io/metallb-system:controller created
-clusterrole.rbac.authorization.k8s.io/metallb-system:speaker created
-role.rbac.authorization.k8s.io/config-watcher created
-role.rbac.authorization.k8s.io/pod-lister created
-role.rbac.authorization.k8s.io/controller created
-clusterrolebinding.rbac.authorization.k8s.io/metallb-system:controller created
-clusterrolebinding.rbac.authorization.k8s.io/metallb-system:speaker created
-rolebinding.rbac.authorization.k8s.io/config-watcher created
-rolebinding.rbac.authorization.k8s.io/pod-lister created
-rolebinding.rbac.authorization.k8s.io/controller created
-daemonset.apps/speaker created
-deployment.apps/controller created
-resource mapping not found for name: &quot;controller&quot; namespace: &quot;&quot; from &quot;metal-lb/metallb.yaml&quot;: no matches for kind &quot;PodSecurityPolicy&quot; in version &quot;policy/v1beta1&quot;
-ensure CRDs are installed first
-resource mapping not found for name: &quot;speaker&quot; namespace: &quot;&quot; from &quot;metal-lb/metallb.yaml&quot;: no matches for kind &quot;PodSecurityPolicy&quot; in version &quot;policy/v1beta1&quot;
-ensure CRDs are installed first
+<pre><code>Created a new certificate valid for the following names 📜
+ - &quot;*.local.com&quot;
+
+Reminder: X.509 wildcards only go one level deep, so this won't match a.b.local.com ℹ️
+
+The certificate is at &quot;./_wildcard.local.com.pem&quot; and the key at &quot;./_wildcard.local.com-key.pem&quot; ✅
+
+It will expire on 27 November 2025 🗓
+</code></pre>
+<h3 id="ssl_1">SSL</h3>
+<pre><code>├── _wildcard.local.com-key.pem
+└── _wildcard.local.com.pem
+</code></pre>
+<h3 id="create-secret">Create Secret</h3>
+<pre><code>kubectl create ns istio-system
+kubectl -n istio-system create secret tls local-cred --key=_wildcard.local.com-key.pem --cert=_wildcard.local.com.pem
+</code></pre>
+<h3 id="outpute">Outpute</h3>
+<pre><code>namespace/istio-system created
+secret/local-cred created
+</code></pre>
+<h3 id="installing-the-ca-on-other-systems">Installing the CA on other systems</h3>
+<pre><code>mkcert -install
+</code></pre>
+<h3 id="outpute_1">Outpute</h3>
+<pre><code>The local CA is already installed in the system trust store! 👍
 </code></pre>
 
 

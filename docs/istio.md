@@ -11,8 +11,8 @@
 ├── metrics-server
 │   └── components.yaml
 └── ssl
-    ├── _wildcard.local.com-key.pem
-    └── _wildcard.local.com.pem
+    ├── _wildcard.kind.local-key.pem
+    └── _wildcard.kind.local.pem
 ```
 ### Install Istio
 ```

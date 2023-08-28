@@ -15,7 +15,7 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - "*.local.com"
+        - "*.kind.local"
       tls:
         httpsRedirect: true
     - port:
@@ -23,7 +23,7 @@ spec:
         name: https
         protocol: HTTPS
       hosts:
-        - "*.local.com"
+        - "*.kind.local"
       tls:
         mode: SIMPLE
         credentialName: local-cred

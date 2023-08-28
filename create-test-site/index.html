@@ -492,8 +492,8 @@
 ├── metrics-server
 │   └── components.yaml
 └── ssl
-    ├── _wildcard.local.com-key.pem
-    └── _wildcard.local.com.pem
+    ├── _wildcard.kind.local-key.pem
+    └── _wildcard.kind.local.pem
 </code></pre>
 <h3 id="create-deploymentservicevirtual-service">Create deployment/service/virtual service</h3>
 <pre><code>kubectl create ns flutter
@@ -507,7 +507,7 @@ virtualservice.networking.istio.io/flutter-web-vs created
 </code></pre>
 <h3 id="get-visual-service">Get Visual Service</h3>
 <pre><code>kubectl get vs -A
-flutter     flutter-web-vs   [&quot;istio-system/local-gateway&quot;]   [&quot;flutter.local.com&quot;]   41s
+flutter     flutter-web-vs   [&quot;istio-system/local-gateway&quot;]   [&quot;flutter.kind.local&quot;]   41s
 </code></pre>
 
 
